@@ -37,4 +37,4 @@ Copyright (c) _2022_ _Patrick Dolan_
 ## Research and Planning Log
 ### Saturday 06/18
 * 8:00AM Create and setup Unity project template and README
-* 8:30AM Create capstone proposal and begin research on assets needed to complete project
+* 8:30AM - 9:30AM Create capstone proposal and begin research on assets needed to complete project
