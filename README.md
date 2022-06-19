@@ -41,4 +41,4 @@ Copyright (c) _2022_ _Patrick Dolan_
 * 5:00PM - 7:00PM Work through some basic tutorials on Unity for FPS games
 
 ### Sunday 06/19
-* 10:00AM Prototyping gun mechanic 
+* 10:00AM - 12:00PM Prototyping gun mechanic 
