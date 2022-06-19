@@ -39,3 +39,6 @@ Copyright (c) _2022_ _Patrick Dolan_
 * 8:00AM Create and setup Unity project template and README
 * 8:30AM - 9:30AM Create capstone proposal and begin research on assets needed to complete project
 * 5:00PM - 7:00PM Work through some basic tutorials on Unity for FPS games
+
+### Sunday 06/19
+* 10:00AM Prototyping gun mechanic 
