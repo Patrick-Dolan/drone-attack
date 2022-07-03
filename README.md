@@ -44,4 +44,5 @@ Copyright (c) _2022_ _Patrick Dolan_
 * 10:00AM - 12:00PM Prototyping gun mechanic 
 
 ### Saturday 07/02
-* 5:30PM Work through more advanced unity scripting lessons online
+* 5:30PM - 7:00PM Work through more advanced unity scripting lessons online
+* 7:00 Prototype player movement
