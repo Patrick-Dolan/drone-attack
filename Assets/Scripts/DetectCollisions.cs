@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DetectCollisions : MonoBehaviour
 {
+    public ParticleSystem impactParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Instantiate(impactParticle, other.transform.position, other.transform.rotation);
         Destroy(other.gameObject);
         Destroy(gameObject);
     }
