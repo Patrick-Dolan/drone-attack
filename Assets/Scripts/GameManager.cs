@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
 
-        isGameActive = true;
+        isGameActive = false;
 
         StartCoroutine(SpawnTarget());
     }
