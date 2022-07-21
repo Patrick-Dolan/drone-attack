@@ -87,7 +87,10 @@ public class SimpleShoot : MonoBehaviour
         if (hasHit)
         {
             Instantiate(impactParticle, hitInfo.transform.position,hitInfo.transform.rotation);
-            Destroy(hitInfo.transform.gameObject);
+            if (hitInfo.transform.gameObject.CompareTag("Target"))
+            {
+                Destroy(hitInfo.transform.gameObject);
+            }
         }
     }
 
