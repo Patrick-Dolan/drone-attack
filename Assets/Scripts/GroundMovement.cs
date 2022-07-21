@@ -21,6 +21,7 @@ public class GroundMovement : MonoBehaviour
         {
             transform.position = loopStartPoint;
         }
+
         transform.Translate(Vector3.back * Time.deltaTime * speed);
     }
 }
