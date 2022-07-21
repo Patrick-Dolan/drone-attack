@@ -22,10 +22,19 @@ public class Target : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.back * speed * Time.deltaTime);
+        HandleWhenOutOfBounds();
     }
 
     Vector3 RandomSpawnPos()
     {
         return new Vector3(Random.Range(-xRange, xRange), Random.Range(ySpawnPosMin, ySpawnPosMax), zSpawnPos);
+    }
+
+    public void HandleWhenOutOfBounds()
+    {
+        if(gameObject.transform.position.z < -60)
+        {
+            Destroy(gameObject);
+        }
     }
 }
