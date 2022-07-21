@@ -76,20 +76,10 @@ public class SimpleShoot : MonoBehaviour
         RaycastHit hitInfo;
         bool hasHit = Physics.Raycast(barrelLocation.position, barrelLocation.forward, out hitInfo, 100);
 
+        line.SetPositions(new Vector3[] { barrelLocation.position, hasHit ? hitInfo.point : barrelLocation.position + barrelLocation.forward * 100 });
         if(hasHit)
         {
             Debug.Log("Hit");
-        }
-
-        line.SetPosition(0, barrelLocation.forward);
-        if (hasHit)
-        {
-            line.SetPosition(1, hitInfo.point);
-        }
-
-        if (line)
-        {
-            line.SetPositions(new Vector3[] { barrelLocation.position, hasHit ? hitInfo.point : barrelLocation.position + barrelLocation.forward * 100 });
         }
     }
 
