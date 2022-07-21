@@ -8,6 +8,7 @@ public class BuildingMovement : MonoBehaviour
     private Vector3 startPosLeft = new Vector3(-18, 0, 120);
     private Vector3 startPosRight = new Vector3(18, 0, 120);
     private Vector3 rotation = new Vector3(0, 90, 0);
+    private float buildingBoundary = -150.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -29,5 +30,9 @@ public class BuildingMovement : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.right * Time.deltaTime * speed);
+        if (transform.position.z <= buildingBoundary)
+        {
+            Destroy(gameObject);
+        }
     }
 }
