@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GroundMovement : MonoBehaviour
 {
-    private Vector3 loopStartPoint = new Vector3(0, 0, -24);
-    private int loopEndPoint = -72;
+    private Vector3 loopStartPoint = new Vector3(0, 0, 72);
+    private int loopEndPoint = 48;
     public float speed = 3.0f;
 
     // Start is called before the first frame update
