@@ -9,6 +9,7 @@ public class SimpleShoot : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject casingPrefab;
     public GameObject muzzleFlashPrefab;
+    public ParticleSystem impactParticle;
 
     [Header("Location Refrences")]
     [SerializeField] private Animator gunAnimator;
@@ -46,7 +47,7 @@ public class SimpleShoot : MonoBehaviour
     //This function creates the bullet behavior
     void Shoot()
     {
-        //source.PlayOneShot(fireSound);
+
         //if (muzzleFlashPrefab)
         //{
         //    //Create the muzzle flash
@@ -66,6 +67,9 @@ public class SimpleShoot : MonoBehaviour
 
         // Shoot Raycast line refactor
         // ===========================
+        //Play Gunshot Sound
+        source.PlayOneShot(fireSound);
+
         //Create the muzzle flash
         GameObject tempFlash;
         tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
@@ -76,10 +80,14 @@ public class SimpleShoot : MonoBehaviour
         RaycastHit hitInfo;
         bool hasHit = Physics.Raycast(barrelLocation.position, barrelLocation.forward, out hitInfo, 100);
 
-        line.SetPositions(new Vector3[] { barrelLocation.position, hasHit ? hitInfo.point : barrelLocation.position + barrelLocation.forward * 100 });
-        if(hasHit)
+        line.SetPositions(new Vector3[] { barrelLocation.position, barrelLocation.position + barrelLocation.forward * 100 });
+        line.enabled = true;
+        StartCoroutine(ShotEffect());
+
+        if (hasHit)
         {
-            Debug.Log("Hit");
+            Instantiate(impactParticle, hitInfo.transform.position,hitInfo.transform.rotation);
+            Destroy(hitInfo.transform.gameObject);
         }
     }
 
@@ -104,7 +112,6 @@ public class SimpleShoot : MonoBehaviour
 
     private IEnumerator ShotEffect()
     {
-        line.enabled = true;
         yield return new WaitForSeconds(0.05f);
         line.enabled = false;
     }
