@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Target
+  - Start Building
+  - Generated Building Right
+  - Generated Building Left
   layers:
   - Default
   - TransparentFX
