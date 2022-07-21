@@ -17,10 +17,17 @@ public class DetectCollisions : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Instantiate(impactParticle, other.transform.position, other.transform.rotation);
+    //    Destroy(other.gameObject);
+    //    Destroy(gameObject);
+    //}
+
+    private void OnCollisionEnter(Collision collision)
     {
-        Instantiate(impactParticle, other.transform.position, other.transform.rotation);
-        Destroy(other.gameObject);
+        Instantiate(impactParticle, collision.transform.position, collision.transform.rotation);
+        Destroy(collision.gameObject);
         Destroy(gameObject);
     }
 }
