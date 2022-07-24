@@ -21,8 +21,6 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
     private GameManager gameManager;
-    private GameObject startMenu;
-    private GameObject gameOverScreen;
     public AudioSource source;
     public AudioClip fireSound;
     private LineRenderer line;
@@ -37,8 +35,6 @@ public class SimpleShoot : MonoBehaviour
 
         line = GetComponent<LineRenderer>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        startMenu = GameObject.Find("Start Menu");
-        gameOverScreen = GameObject.Find("Game Over Menu");
     }
 
 
