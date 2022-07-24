@@ -83,6 +83,7 @@ public class SimpleShoot : MonoBehaviour
             switch (targetName)
             {
                 case "Target":
+                    gameManager.UpdateScore();
                     Destroy(hitInfo.transform.gameObject);
                     break;
                 case "Start Button":

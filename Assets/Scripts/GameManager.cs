@@ -77,9 +77,9 @@ public class GameManager : MonoBehaviour
         livesText.text = $"Lives: {lives}";
     }
 
-    public void UpdateScore(int scoreToAdd)
+    public void UpdateScore()
     {
-        score += scoreToAdd;
+        score += 10;
         scoreText.text = $"Score: {score}";
     }
 
