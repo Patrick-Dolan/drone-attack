@@ -8,6 +8,7 @@ TagManager:
   - Start Building
   - Generated Building Right
   - Generated Building Left
+  - Start Button
   layers:
   - Default
   - TransparentFX

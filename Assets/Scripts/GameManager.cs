@@ -14,10 +14,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        isGameActive = false;
 
-        isGameActive = true;
-
-        StartCoroutine(SpawnTarget());
         StartCoroutine(SpawnBuilding());
     }
 
@@ -44,5 +42,12 @@ public class GameManager : MonoBehaviour
             Instantiate(buildingPrefabRight);
             Instantiate(buildingPrefabLeft);
         }
+    }
+
+    public void StartGame()
+    {
+        isGameActive = true;
+
+        StartCoroutine(SpawnTarget());
     }
 }

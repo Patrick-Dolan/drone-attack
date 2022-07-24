@@ -5,13 +5,13 @@ using UnityEngine;
 [AddComponentMenu("Nokobot/Modern Guns/Simple Shoot")]
 public class SimpleShoot : MonoBehaviour
 {
-    [Header("Prefab Refrences")]
+    [Header("Prefab References")]
     public GameObject bulletPrefab;
     public GameObject casingPrefab;
     public GameObject muzzleFlashPrefab;
     public ParticleSystem impactParticle;
 
-    [Header("Location Refrences")]
+    [Header("Location References")]
     [SerializeField] private Animator gunAnimator;
     [SerializeField] private Transform barrelLocation;
     [SerializeField] private Transform casingExitLocation;
@@ -21,6 +21,8 @@ public class SimpleShoot : MonoBehaviour
     //[Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
+    public GameManager gameManager;
+    public GameObject startMenu;
     public AudioSource source;
     public AudioClip fireSound;
     private LineRenderer line;
@@ -34,6 +36,8 @@ public class SimpleShoot : MonoBehaviour
             gunAnimator = GetComponentInChildren<Animator>();
 
         line = GetComponent<LineRenderer>();
+        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        startMenu = GameObject.Find("Start Menu");
     }
 
 
@@ -47,26 +51,6 @@ public class SimpleShoot : MonoBehaviour
     //This function creates the bullet behavior
     void Shoot()
     {
-
-        //if (muzzleFlashPrefab)
-        //{
-        //    //Create the muzzle flash
-        //    GameObject tempFlash;
-        //    tempFlash = Instantiate(muzzleFlashPrefab, barrelLocation.position, barrelLocation.rotation);
-
-        //    //Destroy the muzzle flash effect
-        //    Destroy(tempFlash, destroyTimer);
-        //}
-
-        ////cancels if there's no bullet prefeb
-        //if (!bulletPrefab)
-        //{ return; }
-
-        //// Create a bullet and add force on it in direction of the barrel
-        //Instantiate(bulletPrefab, barrelLocation.position, barrelLocation.rotation).GetComponent<Rigidbody>().AddForce(barrelLocation.forward * shotPower);
-
-        // Shoot Raycast line refactor
-        // ===========================
         //Play Gunshot Sound
         source.PlayOneShot(fireSound);
 
@@ -84,12 +68,21 @@ public class SimpleShoot : MonoBehaviour
         line.enabled = true;
         StartCoroutine(ShotEffect());
 
+        string targetName = hitInfo.transform.gameObject.tag;
+
         if (hasHit)
         {
             Instantiate(impactParticle, hitInfo.transform.position,hitInfo.transform.rotation);
-            if (hitInfo.transform.gameObject.CompareTag("Target"))
+            switch (targetName)
             {
-                Destroy(hitInfo.transform.gameObject);
+                case "Target":
+                    Destroy(hitInfo.transform.gameObject);
+                    break;
+                case "Start Button":
+                    Debug.Log("Start button hit");
+                    gameManager.StartGame();
+                    startMenu.gameObject.SetActive(false);
+                    break;
             }
         }
     }
