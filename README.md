@@ -46,3 +46,6 @@ Copyright (c) _2022_ _Patrick Dolan_
 ### Saturday 07/02
 * 5:30PM - 7:00PM Work through more advanced unity scripting lessons online
 * 7:00 - 9:30PM Work through XR interaction toolkit tutorials to learn how to use VR control systems
+
+### Sunday 07/24
+* 9:20AM Research how to make vr user interfaces
