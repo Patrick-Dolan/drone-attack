@@ -9,6 +9,7 @@ public class Target : MonoBehaviour
     private float ySpawnPosMin = 0.0f;
     private float zSpawnPos = 50.0f;
     private float speed = 10.0f;
+    public int scoreValue;
     private GameManager gameManager;
 
     // Start is called before the first frame update
@@ -34,6 +35,13 @@ public class Target : MonoBehaviour
     {
         if(gameObject.transform.position.z < -60)
         {
+            gameManager.DecrementLives();
+
+            if (gameManager.lives <= 0)
+            {
+                gameManager.GameOver();
+            }
+
             Destroy(gameObject);
         }
     }
