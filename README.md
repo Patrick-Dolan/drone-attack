@@ -48,4 +48,4 @@ Copyright (c) _2022_ _Patrick Dolan_
 * 7:00 - 9:30PM Work through XR interaction toolkit tutorials to learn how to use VR control systems
 
 ### Sunday 07/24
-* 9:20AM Research how to make vr user interfaces
+* 9:20AM - 10:30AM Research how to make vr user interfaces
