@@ -9,6 +9,7 @@ TagManager:
   - Generated Building Right
   - Generated Building Left
   - Start Button
+  - Restart Button
   layers:
   - Default
   - TransparentFX

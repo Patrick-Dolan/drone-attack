@@ -15,12 +15,14 @@ public class GameManager : MonoBehaviour
     public GameObject buildingPrefabLeft;
     public GameObject buildingPrefabRight;
 
-    private float targetSpawnRate = .5f;
+    private float targetSpawnRate = 1.0f;
     private float buildingSpawnRate = 14.0f;
 
     // UI Elements
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI livesText;
+    public GameObject gameOverMenu;
+    public GameObject startMenu;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (lives <= 0)
+        {
+            GameOver();
+        }
     }
 
     IEnumerator SpawnTarget()
@@ -61,6 +66,8 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isGameActive = true;
+        startMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
 
         StartCoroutine(SpawnTarget());
     }
@@ -69,6 +76,22 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         DestroyAllTargets();
+        gameOverMenu.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        // Reset game menus
+        gameOverMenu.SetActive(false);
+        startMenu.SetActive(true);
+
+        // Reset lives and score 
+        lives = 3;
+        score = 0;
+
+        livesText.text = $"Lives: {lives}";
+        scoreText.text = $"Score: {score}";
+
     }
 
     public void DecrementLives()

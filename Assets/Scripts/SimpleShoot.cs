@@ -22,6 +22,7 @@ public class SimpleShoot : MonoBehaviour
 
     private GameManager gameManager;
     private GameObject startMenu;
+    private GameObject gameOverScreen;
     public AudioSource source;
     public AudioClip fireSound;
     private LineRenderer line;
@@ -37,6 +38,7 @@ public class SimpleShoot : MonoBehaviour
         line = GetComponent<LineRenderer>();
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         startMenu = GameObject.Find("Start Menu");
+        gameOverScreen = GameObject.Find("Game Over Menu");
     }
 
 
@@ -69,8 +71,6 @@ public class SimpleShoot : MonoBehaviour
         line.enabled = true;
         StartCoroutine(ShotEffect());
 
-        
-
         if (hasHit)
         {
             // Set Target name 
@@ -88,7 +88,9 @@ public class SimpleShoot : MonoBehaviour
                     break;
                 case "Start Button":
                     gameManager.StartGame();
-                    startMenu.gameObject.SetActive(false);
+                    break;
+                case "Restart Button":
+                    gameManager.RestartGame();
                     break;
             }
         }

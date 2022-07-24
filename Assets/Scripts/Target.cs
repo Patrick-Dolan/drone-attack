@@ -37,11 +37,6 @@ public class Target : MonoBehaviour
         {
             gameManager.DecrementLives();
 
-            if (gameManager.lives <= 0)
-            {
-                gameManager.GameOver();
-            }
-
             Destroy(gameObject);
         }
     }
