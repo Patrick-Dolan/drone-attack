@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject buildingPrefabLeft;
     public GameObject buildingPrefabRight;
 
-    private float targetSpawnRate = 1.0f;
+    private float targetSpawnRate = .5f;
     private float buildingSpawnRate = 14.0f;
 
     // UI Elements
@@ -41,7 +41,10 @@ public class GameManager : MonoBehaviour
         while(isGameActive)
         {
             yield return new WaitForSeconds(targetSpawnRate);
-            Instantiate(targetPrefab);
+            if (isGameActive)
+            {
+                Instantiate(targetPrefab);
+            }
         }
     }
 
