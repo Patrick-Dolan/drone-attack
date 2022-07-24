@@ -36,7 +36,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator SpawnBuilding()
     {
-        while(isGameActive)
+        while(true)
         {
             yield return new WaitForSeconds(buildingSpawnRate);
             Instantiate(buildingPrefabRight);

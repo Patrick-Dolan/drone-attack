@@ -18,11 +18,10 @@ public class SimpleShoot : MonoBehaviour
 
     [Header("Settings")]
     [Tooltip("Specify time to destory the casing object")] [SerializeField] private float destroyTimer = 2f;
-    //[Tooltip("Bullet Speed")] [SerializeField] private float shotPower = 500f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
-    public GameManager gameManager;
-    public GameObject startMenu;
+    private GameManager gameManager;
+    private GameObject startMenu;
     public AudioSource source;
     public AudioClip fireSound;
     private LineRenderer line;
@@ -61,25 +60,32 @@ public class SimpleShoot : MonoBehaviour
         //Destroy the muzzle flash effect
         Destroy(tempFlash, destroyTimer);
 
+        // Send out Raycast from barrel of gun
         RaycastHit hitInfo;
         bool hasHit = Physics.Raycast(barrelLocation.position, barrelLocation.forward, out hitInfo, 100);
 
+        // Set line positions and handle showing and turning it off
         line.SetPositions(new Vector3[] { barrelLocation.position, barrelLocation.position + barrelLocation.forward * 100 });
         line.enabled = true;
         StartCoroutine(ShotEffect());
 
-        string targetName = hitInfo.transform.gameObject.tag;
+        
 
         if (hasHit)
         {
+            // Set Target name 
+            string targetName = hitInfo.transform.gameObject.tag;
+
+            // Create particle effect on hit
             Instantiate(impactParticle, hitInfo.transform.position,hitInfo.transform.rotation);
+
+            // Shot behaviour switch
             switch (targetName)
             {
                 case "Target":
                     Destroy(hitInfo.transform.gameObject);
                     break;
                 case "Start Button":
-                    Debug.Log("Start button hit");
                     gameManager.StartGame();
                     startMenu.gameObject.SetActive(false);
                     break;
@@ -108,7 +114,7 @@ public class SimpleShoot : MonoBehaviour
 
     private IEnumerator ShotEffect()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.25f);
         line.enabled = false;
     }
 }
