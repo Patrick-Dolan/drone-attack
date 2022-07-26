@@ -52,4 +52,4 @@ Copyright (c) _2022_ _Patrick Dolan_
 * 4:00PM - 5:00PM Research how to setup a leaderboard system
 
 ### Monday 07/25
-* 5:50PM Research how to take input in a form for leaderboard
+* 5:50PM - 8:30PM Research how to take input in a form for leaderboard
