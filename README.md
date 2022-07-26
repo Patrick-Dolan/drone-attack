@@ -49,4 +49,4 @@ Copyright (c) _2022_ _Patrick Dolan_
 
 ### Sunday 07/24
 * 9:20AM - 10:30AM Research how to make vr user interfaces
-* 4:00PM Research how to setup a leaderboard system
+* 4:00PM - 5:00PM Research how to setup a leaderboard system
