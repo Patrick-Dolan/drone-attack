@@ -71,6 +71,7 @@ public class SimpleShoot : MonoBehaviour
         {
             // Set Target name 
             string targetName = hitInfo.transform.gameObject.tag;
+            string menuBlockName = hitInfo.transform.gameObject.name;
 
             // Create particle effect on hit
             Instantiate(impactParticle, hitInfo.transform.position,hitInfo.transform.rotation);
@@ -87,6 +88,16 @@ public class SimpleShoot : MonoBehaviour
                     break;
                 case "Restart Button":
                     gameManager.RestartGame();
+                    break;
+            }
+
+            switch (menuBlockName)
+            {
+                case "UpButtonBlock1":
+                    gameManager.initialsCarousel.UpdateInitalUp(menuBlockName);
+                    break;
+                case "DownButtonBlock1":
+                    gameManager.initialsCarousel.UpdateInitalDown(menuBlockName);
                     break;
             }
         }

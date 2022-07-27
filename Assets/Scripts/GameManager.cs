@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverMenu;
     public GameObject startMenu;
     public char[] currentInitials = new char[] {'A', 'A', 'A'};
+    public InitalCarousel initialsCarousel;
 
     // Start is called before the first frame update
     void Start()

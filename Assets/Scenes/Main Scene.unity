@@ -1830,7 +1830,7 @@ GameObject:
   - component: {fileID: 298911333}
   - component: {fileID: 298911332}
   m_Layer: 0
-  m_Name: DownButtonBlock
+  m_Name: DownButtonBlock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3975,7 +3975,7 @@ GameObject:
   - component: {fileID: 634499760}
   - component: {fileID: 634499759}
   m_Layer: 0
-  m_Name: DownButtonBlock
+  m_Name: DownButtonBlock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7488,7 +7488,7 @@ GameObject:
   - component: {fileID: 998676411}
   - component: {fileID: 998676410}
   m_Layer: 0
-  m_Name: UpButtonBlock
+  m_Name: UpButtonBlock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10422,7 +10422,7 @@ GameObject:
   - component: {fileID: 1626660072}
   - component: {fileID: 1626660071}
   m_Layer: 0
-  m_Name: UpButtonBlock
+  m_Name: UpButtonBlock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10659,7 +10659,7 @@ GameObject:
   - component: {fileID: 1644764817}
   - component: {fileID: 1644764816}
   m_Layer: 0
-  m_Name: UpButtonBlock
+  m_Name: UpButtonBlock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12521,7 +12521,7 @@ GameObject:
   - component: {fileID: 1866513893}
   - component: {fileID: 1866513892}
   m_Layer: 0
-  m_Name: DownButtonBlock
+  m_Name: DownButtonBlock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12933,8 +12933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b685c054bc47540a7c55ec1a50ea17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInitial: {fileID: 2058081562}
   gameManager: {fileID: 1950423525}
+  displayInitial1: {fileID: 2058081562}
+  displayInitial2: {fileID: 694159715}
+  displayInitial3: {fileID: 480210702}
 --- !u!1 &1950423524
 GameObject:
   m_ObjectHideFlags: 0
@@ -12975,6 +12977,7 @@ MonoBehaviour:
   gameOverMenu: {fileID: 820768200}
   startMenu: {fileID: 1793494139}
   currentInitials: 410041004100
+  initialsCarousel: {fileID: 1939132618}
 --- !u!4 &1950423526
 Transform:
   m_ObjectHideFlags: 0
