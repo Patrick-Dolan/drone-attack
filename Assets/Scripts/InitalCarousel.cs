@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Leaderboard;
 
 public class InitalCarousel : MonoBehaviour
 {
@@ -129,5 +130,18 @@ public class InitalCarousel : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public string CreateInitialsString()
+    {
+        string initials = displayInitial1.text + displayInitial2.text + displayInitial3.text;
+        return initials;
+    }
+
+    public void AddToLeaderboard()
+    {
+        string initials = CreateInitialsString();
+        gameManager.leaderboardData.Add(new LeaderboardEntry(initials, gameManager.score));
+        Debug.Log($"Object created at index: {gameManager.leaderboardData.Count} With - Id: {gameManager.leaderboardData[gameManager.leaderboardData.Count - 1].Id} Initials: {gameManager.leaderboardData[gameManager.leaderboardData.Count - 1].Initials} Score: {gameManager.leaderboardData[gameManager.leaderboardData.Count - 1].Score}");
     }
 }

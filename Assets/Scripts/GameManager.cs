@@ -1,3 +1,5 @@
+using Leaderboard;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +10,7 @@ public class GameManager : MonoBehaviour
     public bool isGameActive;
     public int lives = 3;
     public int score = 0;
+    public List<LeaderboardEntry> leaderboardData = new List<LeaderboardEntry>();
 
     // Prefabs
     public GameObject targetPrefab;
@@ -22,7 +25,6 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public GameObject gameOverMenu;
     public GameObject startMenu;
-    public char[] currentInitials = new char[] {'A', 'A', 'A'};
     public InitalCarousel initialsCarousel;
 
     // Start is called before the first frame update
