@@ -99,6 +99,18 @@ public class SimpleShoot : MonoBehaviour
                 case "DownButtonBlock1":
                     gameManager.initialsCarousel.UpdateInitalDown(menuBlockName);
                     break;
+                case "UpButtonBlock2":
+                    gameManager.initialsCarousel.UpdateInitalUp(menuBlockName);
+                    break;
+                case "DownButtonBlock2":
+                    gameManager.initialsCarousel.UpdateInitalDown(menuBlockName);
+                    break;
+                case "UpButtonBlock3":
+                    gameManager.initialsCarousel.UpdateInitalUp(menuBlockName);
+                    break;
+                case "DownButtonBlock3":
+                    gameManager.initialsCarousel.UpdateInitalDown(menuBlockName);
+                    break;
             }
         }
     }

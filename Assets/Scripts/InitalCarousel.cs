@@ -20,7 +20,6 @@ public class InitalCarousel : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
-        UpdateInitalUp("UpButtonBlock1");
     }
 
     // Update is called once per frame
@@ -31,12 +30,13 @@ public class InitalCarousel : MonoBehaviour
 
     public void UpdateInitalUp(String buttonName)
     {
-        int index = Array.IndexOf(alphabet, displayInitial1.text);
+        int index; 
         int newIndex;
 
         switch (buttonName)
         {
             case "UpButtonBlock1":
+                index = Array.IndexOf(alphabet, displayInitial1.text);
                 if (index <= 0)
                 {
                     newIndex = alphabet.Length - 1;
@@ -49,18 +49,45 @@ public class InitalCarousel : MonoBehaviour
                     displayInitial1.text = alphabet[newIndex];
                 }
                 break;
+            case "UpButtonBlock2":
+                index = Array.IndexOf(alphabet, displayInitial2.text);
+                if (index <= 0)
+                {
+                    newIndex = alphabet.Length - 1;
+                    displayInitial2.text = alphabet[newIndex];
 
-            
+                }
+                else
+                {
+                    newIndex = index - 1;
+                    displayInitial2.text = alphabet[newIndex];
+                }
+                break;
+            case "UpButtonBlock3":
+                index = Array.IndexOf(alphabet, displayInitial3.text);
+                if (index <= 0)
+                {
+                    newIndex = alphabet.Length - 1;
+                    displayInitial3.text = alphabet[newIndex];
+
+                }
+                else
+                {
+                    newIndex = index - 1;
+                    displayInitial3.text = alphabet[newIndex];
+                }
+                break;
         }
     }
     public void UpdateInitalDown(string buttonName)
     {
-        int index = Array.IndexOf(alphabet, displayInitial1.text);
+        int index;
         int newIndex;
 
         switch (buttonName)
         {
             case "DownButtonBlock1":
+                index = Array.IndexOf(alphabet, displayInitial1.text);
                 if (index >= alphabet.Length - 1)
                 {
                     newIndex = 0;
@@ -71,6 +98,34 @@ public class InitalCarousel : MonoBehaviour
                 {
                     newIndex = index + 1;
                     displayInitial1.text = alphabet[newIndex];
+                }
+                break;
+            case "DownButtonBlock2":
+                index = Array.IndexOf(alphabet, displayInitial2.text);
+                if (index >= alphabet.Length - 1)
+                {
+                    newIndex = 0;
+                    displayInitial2.text = alphabet[newIndex];
+
+                }
+                else
+                {
+                    newIndex = index + 1;
+                    displayInitial2.text = alphabet[newIndex];
+                }
+                break;
+            case "DownButtonBlock3":
+                index = Array.IndexOf(alphabet, displayInitial3.text);
+                if (index >= alphabet.Length - 1)
+                {
+                    newIndex = 0;
+                    displayInitial3.text = alphabet[newIndex];
+
+                }
+                else
+                {
+                    newIndex = index + 1;
+                    displayInitial3.text = alphabet[newIndex];
                 }
                 break;
         }
