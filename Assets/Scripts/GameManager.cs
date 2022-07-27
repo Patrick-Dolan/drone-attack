@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +22,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public GameObject gameOverMenu;
     public GameObject startMenu;
+    public char[] currentInitials = new char[] {'A', 'A', 'A'};
 
     // Start is called before the first frame update
     void Start()
