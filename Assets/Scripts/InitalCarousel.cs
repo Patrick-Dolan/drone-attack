@@ -11,16 +11,19 @@ public class InitalCarousel : MonoBehaviour
     String[] alphabet = new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T","U", "V", "W", "X", "Y", "Z"};
 
     // Prefabs
-    public GameManager gameManager;
     public TextMeshProUGUI displayInitial1;
     public TextMeshProUGUI displayInitial2;
     public TextMeshProUGUI displayInitial3;
 
+    // Script References
+    public GameManager gameManager;
+    public LeaderboardDisplay leaderboardDisplay;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        leaderboardDisplay = GameObject.Find("Leaderboard").GetComponent<LeaderboardDisplay>();
     }
 
     // Update is called once per frame
@@ -142,6 +145,6 @@ public class InitalCarousel : MonoBehaviour
     {
         string initials = CreateInitialsString();
         gameManager.leaderboardData.Add(new LeaderboardEntry(initials, gameManager.score));
-        Debug.Log($"Object created at index: {gameManager.leaderboardData.Count} With - Id: {gameManager.leaderboardData[gameManager.leaderboardData.Count - 1].Id} Initials: {gameManager.leaderboardData[gameManager.leaderboardData.Count - 1].Initials} Score: {gameManager.leaderboardData[gameManager.leaderboardData.Count - 1].Score}");
+        leaderboardDisplay.UpdateLeaderBoard();
     }
 }
