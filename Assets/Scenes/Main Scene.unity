@@ -13316,7 +13316,7 @@ MonoBehaviour:
   lives: 3
   score: 0
   hasRun: 0
-  targetPrefab: {fileID: 8338496943478755874, guid: b831e7a4ac8d99645b9d1ccd475d83b8, type: 3}
+  targetPrefab: {fileID: 2614241744216947712, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
   buildingPrefabLeft: {fileID: 1917494639043280, guid: 244a94894217ce546b7dda0faaccb026, type: 3}
   buildingPrefabRight: {fileID: 1917494639043280, guid: 546ea5e00bdaefd47a1b8116360b8e89, type: 3}
   scoreText: {fileID: 568264206}

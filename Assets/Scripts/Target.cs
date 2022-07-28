@@ -11,18 +11,26 @@ public class Target : MonoBehaviour
     private float speed = 10.0f;
     public int scoreValue;
     private GameManager gameManager;
+    private Transform camera;
 
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         transform.position = RandomSpawnPos();
+        camera = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.back * speed * Time.deltaTime);
+        transform.Translate(Vector3.back * speed * Time.deltaTime, Space.World);
+        if (transform.position.z < 15)
+        {
+            Quaternion cameraRotation = Quaternion.LookRotation(camera.transform.position - transform.position);
+            transform.rotation = Quaternion.Slerp(transform.rotation, cameraRotation, speed * Time.deltaTime);
+            //transform.LookAt(camera);
+        }
         HandleWhenOutOfBounds();
     }
 
