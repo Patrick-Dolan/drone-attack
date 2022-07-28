@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,10 +23,14 @@ public class GameManager : MonoBehaviour
 
     // UI Elements
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreToSubmit;
     public TextMeshProUGUI livesText;
     public GameObject gameOverMenu;
     public GameObject startMenu;
     public InitalCarousel initialsCarousel;
+
+    // Script References
+    public LeaderboardDisplay leaderboardDisplay;
 
     // Start is called before the first frame update
     void Start()
@@ -107,6 +112,7 @@ public class GameManager : MonoBehaviour
     {
         score += 10;
         scoreText.text = $"Score: {score}";
+        scoreToSubmit.text = $"{score}";
     }
 
     public void DestroyAllTargets()

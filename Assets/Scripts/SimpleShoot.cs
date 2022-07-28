@@ -112,7 +112,6 @@ public class SimpleShoot : MonoBehaviour
                     gameManager.initialsCarousel.UpdateInitalDown(menuBlockName);
                     break;
                 case "SubmitButton":
-                    Debug.Log("Submit button clicked");
                     gameManager.initialsCarousel.AddToLeaderboard();
                     break;
             }

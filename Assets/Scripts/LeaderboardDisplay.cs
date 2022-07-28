@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -25,11 +26,10 @@ public class LeaderboardDisplay : MonoBehaviour
 
     public void UpdateLeaderBoard()
     {
-        //leaderboardList[0].text = gameManager.leaderboardData[0].Initials;
+        gameManager.leaderboardData.Sort((x, y) => y.Score.CompareTo(x.Score));
         for (int i = 0; i < gameManager.leaderboardData.Count; i++)
         {
-            leaderboardList[i].text = $"{i + 1}. {gameManager.leaderboardData[i].Initials} scored {gameManager.leaderboardData[i].Score}";
+            leaderboardList[i].text = $"{i + 1}. {gameManager.leaderboardData[i].Initials}: {gameManager.leaderboardData[i].Score}";
         }
-       
     }
 }
