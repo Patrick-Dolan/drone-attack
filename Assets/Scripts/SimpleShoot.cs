@@ -21,6 +21,7 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
     private GameManager gameManager;
+    public GameObject initialsCarouselObject;
     public AudioSource source;
     public AudioClip fireSound;
     private LineRenderer line;
@@ -112,6 +113,7 @@ public class SimpleShoot : MonoBehaviour
                     gameManager.initialsCarousel.UpdateInitalDown(menuBlockName);
                     break;
                 case "SubmitButton":
+                    initialsCarouselObject.SetActive(false);
                     gameManager.initialsCarousel.AddToLeaderboard();
                     break;
             }

@@ -2004,8 +2004,6 @@ GameObject:
   - component: {fileID: 333653027}
   - component: {fileID: 333653026}
   - component: {fileID: 333653025}
-  - component: {fileID: 333653029}
-  - component: {fileID: 333653028}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2095,48 +2093,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &333653028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333653023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab68ce6587aab0146b8dabefbd806791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ClickSpeed: 0.3
-  m_MoveDeadzone: 0.6
-  m_RepeatDelay: 0.5
-  m_RepeatRate: 0.1
-  m_TrackedDeviceDragThresholdMultiplier: 1.4
-  m_MaxTrackedDeviceRaycastDistance: 1000
-  m_EnableXRInput: 1
-  m_EnableMouseInput: 1
-  m_EnableTouchInput: 1
-  m_EnableGamepadInput: 1
-  m_EnableJoystickInput: 1
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
---- !u!114 &333653029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 333653023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
-  m_sendNavigationEvents: 1
-  m_DragThreshold: 10
 --- !u!1 &362985702
 GameObject:
   m_ObjectHideFlags: 0
@@ -8013,7 +7969,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -8051,6 +8007,10 @@ PrefabInstance:
       propertyPath: impactParticle
       value: 
       objectReference: {fileID: 198000012529019072, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+    - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
+      propertyPath: initialsCarouselObject
+      value: 
+      objectReference: {fileID: 1939132616}
     - target: {fileID: 921090566749770278, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -11125,7 +11085,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 963194227}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -12950,7 +12910,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1939132617
 Transform:
   m_ObjectHideFlags: 0
@@ -13020,6 +12980,7 @@ MonoBehaviour:
   isGameActive: 0
   lives: 3
   score: 0
+  hasRun: 0
   targetPrefab: {fileID: 8338496943478755874, guid: b831e7a4ac8d99645b9d1ccd475d83b8, type: 3}
   buildingPrefabLeft: {fileID: 1917494639043280, guid: 244a94894217ce546b7dda0faaccb026, type: 3}
   buildingPrefabRight: {fileID: 1917494639043280, guid: 546ea5e00bdaefd47a1b8116360b8e89, type: 3}
@@ -13028,6 +12989,8 @@ MonoBehaviour:
   livesText: {fileID: 1971641523}
   gameOverMenu: {fileID: 820768200}
   startMenu: {fileID: 1793494139}
+  leaderboardObject: {fileID: 2061830637}
+  initialsCarouselObject: {fileID: 1939132616}
   initialsCarousel: {fileID: 1939132618}
   leaderboardDisplay: {fileID: 2061830639}
 --- !u!4 &1950423526
@@ -14215,7 +14178,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2061830638
 Transform:
   m_ObjectHideFlags: 0

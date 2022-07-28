@@ -1,16 +1,15 @@
 using Leaderboard;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System.Linq;
 
 public class GameManager : MonoBehaviour
 {
     public bool isGameActive;
     public int lives = 3;
     public int score = 0;
+    public bool hasRun = false;
     public List<LeaderboardEntry> leaderboardData = new List<LeaderboardEntry>();
 
     // Prefabs
@@ -27,9 +26,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public GameObject gameOverMenu;
     public GameObject startMenu;
-    public InitalCarousel initialsCarousel;
+    public GameObject leaderboardObject;
+    public GameObject initialsCarouselObject;
 
     // Script References
+    public InitalCarousel initialsCarousel;
     public LeaderboardDisplay leaderboardDisplay;
 
     // Start is called before the first frame update
@@ -43,8 +44,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (lives <= 0)
+        if (lives <= 0 && !hasRun)
         {
+            hasRun = true;
             GameOver();
         }
     }
@@ -85,6 +87,8 @@ public class GameManager : MonoBehaviour
         isGameActive = false;
         DestroyAllTargets();
         gameOverMenu.SetActive(true);
+        leaderboardObject.SetActive(true);
+        initialsCarouselObject.SetActive(true);
     }
 
     public void RestartGame()
@@ -92,10 +96,13 @@ public class GameManager : MonoBehaviour
         // Reset game menus
         gameOverMenu.SetActive(false);
         startMenu.SetActive(true);
+        leaderboardObject.SetActive(false);
+        initialsCarouselObject.SetActive(false);
 
         // Reset lives and score 
         lives = 3;
         score = 0;
+        hasRun = false;
 
         livesText.text = $"Lives: {lives}";
         scoreText.text = $"Score: {score}";
