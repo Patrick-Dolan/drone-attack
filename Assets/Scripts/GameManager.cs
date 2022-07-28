@@ -78,6 +78,7 @@ public class GameManager : MonoBehaviour
         isGameActive = true;
         startMenu.SetActive(false);
         gameOverMenu.SetActive(false);
+        leaderboardObject.SetActive(false);
 
         StartCoroutine(SpawnTarget());
     }
@@ -128,6 +129,18 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < gameObjects.Length; i++)
         {
             Destroy(gameObjects[i]);
+        }
+    }
+
+    public void ToggleLeaderboard()
+    {
+        if (leaderboardObject.activeSelf == true)
+        {
+            leaderboardObject.SetActive(false);
+        }
+        else
+        {
+            leaderboardObject.SetActive(true);
         }
     }
 }

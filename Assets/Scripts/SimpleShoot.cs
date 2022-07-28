@@ -84,12 +84,6 @@ public class SimpleShoot : MonoBehaviour
                     gameManager.UpdateScore();
                     Destroy(hitInfo.transform.gameObject);
                     break;
-                case "Start Button":
-                    gameManager.StartGame();
-                    break;
-                case "Restart Button":
-                    gameManager.RestartGame();
-                    break;
             }
 
             switch (menuBlockName)
@@ -115,6 +109,15 @@ public class SimpleShoot : MonoBehaviour
                 case "SubmitButton":
                     initialsCarouselObject.SetActive(false);
                     gameManager.initialsCarousel.AddToLeaderboard();
+                    break;
+                case "Start Button":
+                    gameManager.StartGame();
+                    break;
+                case "Restart Button":
+                    gameManager.RestartGame();
+                    break;
+                case "Start Menu Leaderboard Button":
+                    gameManager.ToggleLeaderboard();
                     break;
             }
         }
