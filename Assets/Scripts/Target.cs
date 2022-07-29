@@ -10,8 +10,10 @@ public class Target : MonoBehaviour
     private float zSpawnPos = 50.0f;
     private float speed = 15.0f;
     private int droneSightDistance = 20;
+    private bool hasShot = false;
     private GameManager gameManager;
     private Transform camera;
+    public GameObject bulletPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +32,10 @@ public class Target : MonoBehaviour
             speed = 10.0f;
             Quaternion cameraRotation = Quaternion.LookRotation(camera.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, cameraRotation, speed * Time.deltaTime);
-            //transform.LookAt(camera);
+            if (!hasShot)
+            {
+                ShootAtPlayer();
+            }
         }
         HandleWhenOutOfBounds();
     }
@@ -44,9 +49,15 @@ public class Target : MonoBehaviour
     {
         if(gameObject.transform.position.z < -60)
         {
-            gameManager.DecrementLives();
+            //gameManager.DecrementLives();
 
             Destroy(gameObject);
         }
+    }
+    
+    void ShootAtPlayer()
+    {
+        hasShot = true;
+        Instantiate(bulletPrefab, transform.position, transform.rotation);
     }
 }
