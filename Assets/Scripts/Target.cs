@@ -11,7 +11,6 @@ public class Target : MonoBehaviour
     private float speed = 15.0f;
     private int droneSightDistance = 20;
     private bool hasShot = false;
-    private GameManager gameManager;
     private Transform camera;
     public GameObject bulletPrefab;
     public AudioSource source;

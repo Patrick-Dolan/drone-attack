@@ -32,11 +32,15 @@ public class GameManager : MonoBehaviour
     // Script References
     public InitalCarousel initialsCarousel;
     public LeaderboardDisplay leaderboardDisplay;
+    public AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
         isGameActive = false;
+
+        audioManager = GameObject.Find("Player").GetComponent<AudioManager>();
+        audioManager.PlayMenuMusic();
 
         StartCoroutine(SpawnBuilding());
     }
@@ -79,6 +83,7 @@ public class GameManager : MonoBehaviour
         startMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         leaderboardObject.SetActive(false);
+        audioManager.PlayGameMusic();
 
         StartCoroutine(SpawnTarget());
     }
@@ -90,6 +95,7 @@ public class GameManager : MonoBehaviour
         gameOverMenu.SetActive(true);
         leaderboardObject.SetActive(true);
         initialsCarouselObject.SetActive(true);
+        audioManager.PlayMenuMusic();
     }
 
     public void RestartGame()
