@@ -14,6 +14,8 @@ public class Target : MonoBehaviour
     private GameManager gameManager;
     private Transform camera;
     public GameObject bulletPrefab;
+    public AudioSource source;
+    public AudioClip shootSound;
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,7 @@ public class Target : MonoBehaviour
     void ShootAtPlayer()
     {
         hasShot = true;
+        source.PlayOneShot(shootSound);
         Instantiate(bulletPrefab, transform.position, transform.rotation);
     }
 }
