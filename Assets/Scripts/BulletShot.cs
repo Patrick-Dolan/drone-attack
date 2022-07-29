@@ -7,6 +7,7 @@ public class BulletShot : MonoBehaviour
     private Transform camera;
     public GameManager gameManager;
     public float speed = 5.0f;
+    private int outOfBounds = -60;
 
     // Start is called before the first frame update
     void Start()
@@ -21,11 +22,18 @@ public class BulletShot : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        if (transform.position.z <= outOfBounds)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
-        gameManager.DecrementLives();
+        if (collision.gameObject.CompareTag("Head"))
+        {
+            gameManager.DecrementLives();
+        }
     }
 }

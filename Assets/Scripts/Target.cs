@@ -49,8 +49,6 @@ public class Target : MonoBehaviour
     {
         if(gameObject.transform.position.z < -60)
         {
-            //gameManager.DecrementLives();
-
             Destroy(gameObject);
         }
     }
