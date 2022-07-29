@@ -125,10 +125,16 @@ public class GameManager : MonoBehaviour
 
     public void DestroyAllTargets()
     {
-        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Target");
-        for (int i = 0; i < gameObjects.Length; i++)
+        GameObject[] drones = GameObject.FindGameObjectsWithTag("Target");
+        for (int i = 0; i < drones.Length; i++)
         {
-            Destroy(gameObjects[i]);
+            Destroy(drones[i]);
+        }
+
+        GameObject[] enemyBullets = GameObject.FindGameObjectsWithTag("Enemy Bullet");
+        for (int i = 0; i < enemyBullets.Length; i++)
+        {
+            Destroy(enemyBullets[i]);
         }
     }
 
