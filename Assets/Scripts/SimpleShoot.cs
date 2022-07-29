@@ -25,6 +25,7 @@ public class SimpleShoot : MonoBehaviour
     public AudioSource source;
     public AudioClip fireSound;
     private LineRenderer line;
+    public ParticleSystem targetExplosion;
 
     void Start()
     {
@@ -82,6 +83,7 @@ public class SimpleShoot : MonoBehaviour
             {
                 case "Target":
                     gameManager.UpdateScore();
+                    Instantiate(targetExplosion, hitInfo.transform.gameObject.transform.position, hitInfo.transform.gameObject.transform.rotation);
                     Destroy(hitInfo.transform.gameObject);
                     break;
             }

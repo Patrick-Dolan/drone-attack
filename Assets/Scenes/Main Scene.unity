@@ -8205,7 +8205,11 @@ PrefabInstance:
     - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: impactParticle
       value: 
-      objectReference: {fileID: 198000012529019072, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
+      objectReference: {fileID: 198000013440722320, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+    - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
+      propertyPath: targetExplosion
+      value: 
+      objectReference: {fileID: 198000010585806678, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
     - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: initialsCarouselObject
       value: 
