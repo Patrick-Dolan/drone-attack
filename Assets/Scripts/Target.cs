@@ -19,7 +19,6 @@ public class Target : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
         transform.position = RandomSpawnPos();
         camera = Camera.main.transform;
     }

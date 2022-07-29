@@ -10,7 +10,7 @@ public class AutoDestroyParticle : MonoBehaviour
     private IEnumerator Start()
     {
         particleSystem = GetComponent<ParticleSystem>();
-        yield return new WaitForSeconds(particleSystem.duration);
+        yield return new WaitForSeconds(particleSystem.main.duration);
         Destroy(gameObject);
     }
     
