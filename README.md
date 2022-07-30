@@ -20,6 +20,7 @@ Reload by pointing gun down.
 
 ## Demo 
 [YouTube Video](https://youtu.be/LMh-I_4ewSs)
+<br />
 ![Drone Attack Screenshot](https://raw.githubusercontent.com/Patrick-Dolan/drone-attack/main/README_IMGS/DroneAttackThumbnail.jpg)
 
 ## Download
