@@ -2,26 +2,49 @@
 
 #### By _**Patrick Dolan**_
 
-#### _A Unity VR game made for the Oculus Quest 2 where you shoot targets while moving through a scene. Inspired by Pistolwhip._
+#### _A Unity VR game inspired by Pistolwhip made for the Oculus Quest 2 where you shoot drones while moving through a scene dodging enemy return fire._
 
 ## Technologies Used
 
-* Unity
+* Unity (Editor version 2021.3.1f1)
 * C#
+* XR Interaction Toolkit
 
 ## Description
 
-A Unity VR game made for the Oculus Quest 2 where you shoot targets while moving through a scene. Inspired by Pistolwhip.
+A Unity VR game inspired by Pistolwhip made for the Oculus Quest 2 where you shoot drones while moving through a scene dodging enemy return fire. 
+
+## Download
+You can download the current release version at (See "Installing on Quest" section for installation instructions):
+[Drone Attack Game on Itch.io](https://patrick-dolan.itch.io/drone-attack)
 
 ## Setup/Installation Requirements
 
-* Download or Clone the repo down to your computer.
-* TODO: PLACE INSTALLATION INSTRUCTIONS HERE
+### Project setup for Unity
+Installation instruction work on Unity Hub 3.2.0 with Editor version 2021.3.1f1
+* Download or Clone the repo down to a directory on your computer.
+* Open Unity Hub and make sure you have the <code>2021.3.1f1</code> editor version installed.
+* In the Unity Hub click the open dropdown arrow on the top right and click <code>Add project from disk</code>.
+* Navigate to the directory you downloaded to your computer in the explorer window that pops up and click add project on the bottom of the window.
+* Click on the project named <code>drone-attack</code> (Or whatever you named it if you renamed it) and it will launch the project in Unity.
+* In the scenes folder in the project assets folder double click the main scene and it will open the game in the editor.
 
+### How to build project
+* Once the project is open in Unity you cane click File > Build Settings (Or the keyboard shortcut Ctrl+Shift+B) to open the build settings menu.
+* Make sure your Quest is connected and linked up to your computer if you want to immediately run/install.
+* Select the Android Platform, install it if you dont the platform setup, then match up your settings to the ones in the picture below:
+![Project Build Settings](Add Link to picture)
+* Once your settings match select build and run, which will build it then install it on your quest if its connected, or just build it and proceed to Installing on Quest.
 
+### Installing on Quest
+In order to install the game on your quest you will need Sidequest(The advanced installer), a piece of software designed to side load games on your quest.
+* Download the <code>DroneAttack_v1.0.0.apk</code> file from Itch.io at the link above in the <strong>Download</strong> section.
+* Open Sidequest and click on the <code>Install APK from file on computer</code> button. It looks like a download button on the top of the Sidequest window.
+* Navigate to the place you downloaded/built the project and click open on the APK file. 
+* The game will then be installed and can be found inside your quest in the unknown sources section of your apps. (Dropdown found in the top right of the Apps to access unknown sources)
 ## Known Bugs
 
-* No known issues
+* Gun can sometimes be used as a shield to redirect enemy fire.
 
 ## Contact Me
 
