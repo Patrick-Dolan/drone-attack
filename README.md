@@ -20,7 +20,7 @@ Reload by pointing gun down.
 
 ## Demo 
 [YouTube Video](https://youtu.be/LMh-I_4ewSs)
-![Drone Attack Screenshot]()
+![Drone Attack Screenshot](https://raw.githubusercontent.com/Patrick-Dolan/drone-attack/main/README_IMGS/DroneAttackThumbnail.jpg)
 
 ## Download
 You can download the current release version at (See "Installing on Quest" section for installation instructions):
