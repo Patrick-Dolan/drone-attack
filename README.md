@@ -18,6 +18,9 @@ Controls:
 All menus and game are interacted with by shooting.
 Reload by pointing gun down.
 
+## Demo 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LMh-I_4ewSs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## Download
 You can download the current release version at (See "Installing on Quest" section for installation instructions):
 [Drone Attack Game on Itch.io](https://patrick-dolan.itch.io/drone-attack)
