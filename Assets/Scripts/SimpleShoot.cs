@@ -25,6 +25,7 @@ public class SimpleShoot : MonoBehaviour
     public GameObject initialsCarouselObject;
     public AudioSource source;
     public AudioClip fireSound;
+    public AudioClip noAmmoSound;
     private LineRenderer line;
     public ParticleSystem targetExplosion;
     public TextMeshProUGUI ammoDisplay;
@@ -48,8 +49,20 @@ public class SimpleShoot : MonoBehaviour
     public void PullTrigger()
     {
         //Calls animation on the gun that has the relevant animation events that will fire
-        DecrementAmmo();
-        gunAnimator.SetTrigger("Fire");
+        if (ammoCount > 0 && gameManager.isGameActive == true)
+        {
+            DecrementAmmo();
+            gunAnimator.SetTrigger("Fire");
+        }
+        else if (gameManager.isGameActive == false)
+        {
+            gunAnimator.SetTrigger("Fire");
+        }
+        else
+        {
+            source.PlayOneShot(noAmmoSound);
+            Debug.Log("Out of Ammo");
+        }
     }
 
 
@@ -159,6 +172,12 @@ public class SimpleShoot : MonoBehaviour
     void DecrementAmmo()
     {
         ammoCount--;
+        ammoDisplay.text = $"{ammoCount}";
+    }
+
+    void ReloadAmmo()
+    {
+        ammoCount = 14;
         ammoDisplay.text = $"{ammoCount}";
     }
 }
