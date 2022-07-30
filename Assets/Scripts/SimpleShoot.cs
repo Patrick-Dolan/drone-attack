@@ -7,10 +7,13 @@ using UnityEngine;
 public class SimpleShoot : MonoBehaviour
 {
     [Header("Prefab References")]
-    public GameObject bulletPrefab;
     public GameObject casingPrefab;
     public GameObject muzzleFlashPrefab;
+    public GameObject gunObjectPrefab;
+
+    [Header("Particle References")]
     public ParticleSystem impactParticle;
+    public ParticleSystem targetExplosion;
 
     [Header("Location References")]
     [SerializeField] private Animator gunAnimator;
@@ -21,17 +24,25 @@ public class SimpleShoot : MonoBehaviour
     [Tooltip("Specify time to destory the casing object")] [SerializeField] private float destroyTimer = 2f;
     [Tooltip("Casing Ejection Speed")] [SerializeField] private float ejectPower = 150f;
 
-    private GameManager gameManager;
-    public GameObject initialsCarouselObject;
+    [Header("Audio")]
     public AudioSource source;
     public AudioClip fireSound;
     public AudioClip noAmmoSound;
-    private LineRenderer line;
-    public ParticleSystem targetExplosion;
+    public AudioClip reloadSound;
+
+    [Header("UI References")]
+    public GameObject initialsCarouselObject;
     public TextMeshProUGUI ammoDisplay;
 
-    // Bullet Count
+    [Header("Script References & Misc")]
+    private GameManager gameManager;
+    private LineRenderer line;
+
+    // Ammo Count and Reload props
     private int ammoCount = 14;
+    private int maxAmmo = 14;
+    private float reloadTimer = 0f;
+    private float reloadCooldown = 3.0f;
 
     void Start()
     {
@@ -45,6 +56,16 @@ public class SimpleShoot : MonoBehaviour
         gameManager = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
+    void Update()
+    {
+        reloadTimer += Time.deltaTime;
+
+        if (gunObjectPrefab.transform.rotation.x > .45 && reloadTimer > reloadCooldown && ammoCount != maxAmmo)
+        {
+            reloadTimer = 0;
+            ReloadAmmo();
+        }
+    }
 
     public void PullTrigger()
     {
@@ -61,7 +82,6 @@ public class SimpleShoot : MonoBehaviour
         else
         {
             source.PlayOneShot(noAmmoSound);
-            Debug.Log("Out of Ammo");
         }
     }
 
@@ -97,16 +117,15 @@ public class SimpleShoot : MonoBehaviour
             // Create particle effect on hit
             Instantiate(impactParticle, hitInfo.transform.position,hitInfo.transform.rotation);
 
-            // Shot behaviour switch
-            switch (targetName)
+            // Target by tag behavior
+            if (targetName == "Target")
             {
-                case "Target":
-                    gameManager.UpdateScore();
-                    Instantiate(targetExplosion, hitInfo.transform.gameObject.transform.position, hitInfo.transform.gameObject.transform.rotation);
-                    Destroy(hitInfo.transform.gameObject);
-                    break;
+                gameManager.UpdateScore();
+                Instantiate(targetExplosion, hitInfo.transform.gameObject.transform.position, hitInfo.transform.gameObject.transform.rotation);
+                Destroy(hitInfo.transform.gameObject);
             }
 
+            // Shot behaviour switch (by name not tag)
             switch (menuBlockName)
             {
                 case "UpButtonBlock1":
@@ -163,6 +182,7 @@ public class SimpleShoot : MonoBehaviour
         Destroy(tempCasing, destroyTimer);
     }
 
+    // Determiens how long line is enabled for gun shots
     private IEnumerator ShotEffect()
     {
         yield return new WaitForSeconds(0.25f);
@@ -177,7 +197,8 @@ public class SimpleShoot : MonoBehaviour
 
     void ReloadAmmo()
     {
-        ammoCount = 14;
+        source.PlayOneShot(reloadSound);
+        ammoCount = maxAmmo;
         ammoDisplay.text = $"{ammoCount}";
     }
 }
