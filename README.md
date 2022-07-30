@@ -38,7 +38,8 @@ Installation instruction work on Unity Hub 3.2.0 with Editor version 2021.3.1f1
 * Make sure your Quest is connected and linked up to your computer if you want to immediately run/install.
 * Select the Android Platform, install it if you dont the platform setup, then match up your settings to the ones in the picture below:
 <br />
-![Project Build Settings](https://raw.githubusercontent.com/Patrick-Dolan/drone-attack/main/README_IMGS/Build_settings.PNG)  
+
+![Project Build Settings](https://raw.githubusercontent.com/Patrick-Dolan/drone-attack/main/README_IMGS/Build_settings.PNG)
 
 * Once your settings match select build and run, which will build it then install it on your quest if its connected, or just build it and proceed to Installing on Quest.
 
