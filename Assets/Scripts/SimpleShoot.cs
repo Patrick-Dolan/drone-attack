@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [AddComponentMenu("Nokobot/Modern Guns/Simple Shoot")]
@@ -26,6 +27,10 @@ public class SimpleShoot : MonoBehaviour
     public AudioClip fireSound;
     private LineRenderer line;
     public ParticleSystem targetExplosion;
+    public TextMeshProUGUI ammoDisplay;
+
+    // Bullet Count
+    private int ammoCount = 14;
 
     void Start()
     {
@@ -43,6 +48,7 @@ public class SimpleShoot : MonoBehaviour
     public void PullTrigger()
     {
         //Calls animation on the gun that has the relevant animation events that will fire
+        DecrementAmmo();
         gunAnimator.SetTrigger("Fire");
     }
 
@@ -148,5 +154,11 @@ public class SimpleShoot : MonoBehaviour
     {
         yield return new WaitForSeconds(0.25f);
         line.enabled = false;
+    }
+
+    void DecrementAmmo()
+    {
+        ammoCount--;
+        ammoDisplay.text = $"{ammoCount}";
     }
 }
