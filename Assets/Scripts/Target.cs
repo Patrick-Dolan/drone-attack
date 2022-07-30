@@ -18,6 +18,8 @@ public class Target : MonoBehaviour
     [SerializeField] private bool hasShot = false;
     [SerializeField] private float shotDelay = 1.0f;
     [SerializeField] private float stopTime = 0;
+    [SerializeField] private float bulletDelayMin = 0.5f;
+    [SerializeField] private float bulletDelayMax = 2.0f;
     private new Transform camera;
 
     [Header("Prefab References")]
@@ -31,7 +33,7 @@ public class Target : MonoBehaviour
     void Start()
     {
         transform.position = RandomSpawnPos();
-        shotDelay = Random.Range(0.5f, 2.0f);
+        shotDelay = Random.Range(bulletDelayMin, bulletDelayMax);
         camera = Camera.main.transform;
     }
 
@@ -66,7 +68,6 @@ public class Target : MonoBehaviour
                 {
                     speed = 12.0f;
                 }
-
             }
         }
 
