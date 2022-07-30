@@ -6,21 +6,24 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Game Values")]
     public int lives = 3;
     public int score = 0;
     public bool isGameActive;
     public bool hasRun = false;
     public List<LeaderboardEntry> leaderboardData = new List<LeaderboardEntry>();
-    private float targetSpawnRate = 1.0f;
-    private float buildingSpawnRate = 14.0f;
 
-    // Prefabs
+    [Header("Spawn Rates")]
+    [SerializeField] private float targetSpawnRate = 1.0f;
+    [SerializeField] private float buildingSpawnRate = 14.0f;
+
+    [Header("Prefab References")]
     public GameObject targetPrefab;
     public GameObject buildingPrefabLeft;
     public GameObject buildingPrefabRight;
 
 
-    // UI Elements
+    [Header("UI Elements")]
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreToSubmit;
     public TextMeshProUGUI livesText;
@@ -29,7 +32,7 @@ public class GameManager : MonoBehaviour
     public GameObject leaderboardObject;
     public GameObject initialsCarouselObject;
 
-    // Script References
+    [Header("Script References")]
     public InitalCarousel initialsCarousel;
     public LeaderboardDisplay leaderboardDisplay;
     public AudioManager audioManager;
