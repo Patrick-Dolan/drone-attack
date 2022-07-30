@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Target : MonoBehaviour
 {
-    private float xRange = 8.0f;
-    private float ySpawnPosMax = 8.0f;
-    private float ySpawnPosMin = 1.0f;
-    private float zSpawnPos = 50.0f;
-    private float speed = 15.0f;
-    private int droneSightDistance = 20;
-    private bool hasShot = false;
+    [Header("Spawning information")]
+    [SerializeField] private float xRange = 8.0f;
+    [SerializeField] private float ySpawnPosMax = 8.0f;
+    [SerializeField] private float ySpawnPosMin = 1.0f;
+    [SerializeField] private float zSpawnPos = 50.0f;
+
+    [Header("Movement Variables")]
+    [SerializeField] private float speed = 15.0f;
+    [SerializeField] private int droneSightDistance = 20;
+
+    [Header("Shooting Information")]
+    [SerializeField] private bool hasShot = false;
     private new Transform camera;
+
+    [Header("Prefab References")]
     public GameObject bulletPrefab;
+
+    [Header("Audio")]
     public AudioSource source;
     public AudioClip shootSound;
 
@@ -20,23 +29,31 @@ public class Target : MonoBehaviour
     void Start()
     {
         transform.position = RandomSpawnPos();
-        camera = Camera.main.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
         transform.Translate(Vector3.back * speed * Time.deltaTime, Space.World);
+
+        // Behavior change when drone sees player
         if (transform.position.z < droneSightDistance)
         {
+            // Set speed for shooting
             speed = 10.0f;
+
+            // Aim and Shoot at player
+            camera = Camera.main.transform;
             Quaternion cameraRotation = Quaternion.LookRotation(camera.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, cameraRotation, speed * Time.deltaTime);
+
+            //Drones get one shot at player
             if (!hasShot)
             {
                 ShootAtPlayer();
             }
         }
+
         HandleWhenOutOfBounds();
     }
 
