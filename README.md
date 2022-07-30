@@ -59,6 +59,16 @@ In order to install the game on your quest you will need Sidequest(The advanced 
 
 * Gun can sometimes be used as a shield to redirect enemy fire.
 
+## Unity Assets Used
+[Free Music Pack](https://assetstore.unity.com/packages/audio/music/free-music-50-tracks-10-different-genres-all-the-emotions-94944)<br />
+[Sci-fi Evolution Gift Pack](https://assetstore.unity.com/packages/audio/sound-fx/sci-fi-evolution-gift-pack-43104)<br />
+[Sci-fi Drone](https://assetstore.unity.com/packages/3d/characters/robots/sci-fi-drone-214089)<br />
+[Russian Buildings](https://assetstore.unity.com/packages/3d/environments/urban/russian-buildings-lowpoly-pack-80518)<br />
+[Small Town America(Roads)](https://assetstore.unity.com/packages/3d/small-town-america-streets-free-59759)<br />
+[Unity Particle Pack](https://assetstore.unity.com/packages/essentials/asset-packs/unity-particle-pack-5-x-73777)<br />
+[Skybox Series Free](https://assetstore.unity.com/packages/2d/textures-materials/sky/skybox-series-free-103633)<br />
+[Nokobot Modern Guns: Handgun](https://assetstore.unity.com/packages/3d/props/guns/modern-guns-handgun-129821)<br />
+
 ## Contact Me
 
 Let me know if you run into any issues or have questions, ideas or concerns:
