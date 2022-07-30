@@ -21,7 +21,6 @@ public class DestroyOutOfSight : MonoBehaviour
         if (currentDistance > maxDistance)
         {
             Destroy(gameObject);
-            //GameManager.Decre
         }
     }
 }

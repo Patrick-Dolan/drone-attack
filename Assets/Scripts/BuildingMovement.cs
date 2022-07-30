@@ -13,6 +13,7 @@ public class BuildingMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Handle position and rotation depending on which side is being generated
         if (gameObject.CompareTag("Generated Building Left"))
         {
             transform.position = startPosLeft;

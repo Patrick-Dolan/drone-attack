@@ -10,20 +10,6 @@ public class AudioManager : MonoBehaviour
     // Script References
     public GameManager gameManager;
 
-    private bool isMenuMusicPlaying;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PlayMenuMusic()
     {
         gameMusic.Stop();

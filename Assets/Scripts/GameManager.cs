@@ -6,19 +6,19 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isGameActive;
     public int lives = 3;
     public int score = 0;
+    public bool isGameActive;
     public bool hasRun = false;
     public List<LeaderboardEntry> leaderboardData = new List<LeaderboardEntry>();
+    private float targetSpawnRate = 1.0f;
+    private float buildingSpawnRate = 14.0f;
 
     // Prefabs
     public GameObject targetPrefab;
     public GameObject buildingPrefabLeft;
     public GameObject buildingPrefabRight;
 
-    private float targetSpawnRate = 1.0f;
-    private float buildingSpawnRate = 14.0f;
 
     // UI Elements
     public TextMeshProUGUI scoreText;
@@ -80,9 +80,12 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         isGameActive = true;
+
+        // Hide menus
         startMenu.SetActive(false);
         gameOverMenu.SetActive(false);
         leaderboardObject.SetActive(false);
+
         audioManager.PlayGameMusic();
 
         StartCoroutine(SpawnTarget());
@@ -92,9 +95,11 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
         DestroyAllTargets();
+
         gameOverMenu.SetActive(true);
         leaderboardObject.SetActive(true);
         initialsCarouselObject.SetActive(true);
+
         audioManager.PlayMenuMusic();
     }
 
@@ -131,6 +136,7 @@ public class GameManager : MonoBehaviour
 
     public void DestroyAllTargets()
     {
+        // Destroy Targets then bullets still flying
         GameObject[] drones = GameObject.FindGameObjectsWithTag("Target");
         for (int i = 0; i < drones.Length; i++)
         {

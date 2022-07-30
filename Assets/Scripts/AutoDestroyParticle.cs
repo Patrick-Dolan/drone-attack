@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AutoDestroyParticle : MonoBehaviour
 {
-    private ParticleSystem particleSystem;
+    private new ParticleSystem particleSystem;
 
     // Start is called before the first frame update
     private IEnumerator Start()
@@ -13,11 +13,4 @@ public class AutoDestroyParticle : MonoBehaviour
         yield return new WaitForSeconds(particleSystem.main.duration);
         Destroy(gameObject);
     }
-    
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }

@@ -8657,6 +8657,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: b5f6fee0c794e1e45802633ab5d71b90, type: 3}
     - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
+      propertyPath: reloadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: afe5e031c5eca6c43b0427ff99d012b3, type: 3}
+    - target: {fileID: 1619505362, guid: 7e7f2840eb6a6294fb9d04582dbf8079, type: 3}
       propertyPath: impactParticle
       value: 
       objectReference: {fileID: 198000013440722320, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
@@ -13939,9 +13943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa994528ed64a894481feea402cf818f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isGameActive: 0
   lives: 3
   score: 0
+  isGameActive: 0
   hasRun: 0
   targetPrefab: {fileID: 2614241744216947712, guid: 5bd685975a63f0542b3ac964a6f0f778, type: 3}
   buildingPrefabLeft: {fileID: 1917494639043280, guid: 244a94894217ce546b7dda0faaccb026, type: 3}

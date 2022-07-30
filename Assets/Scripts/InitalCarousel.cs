@@ -26,12 +26,6 @@ public class InitalCarousel : MonoBehaviour
         leaderboardDisplay = GameObject.Find("Leaderboard").GetComponent<LeaderboardDisplay>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void UpdateInitalUp(String buttonName)
     {
         int index; 

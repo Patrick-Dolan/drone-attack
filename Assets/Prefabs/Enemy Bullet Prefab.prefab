@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 263469133670370350}
   - component: {fileID: 3886611461646725476}
   - component: {fileID: 9045607208205191854}
+  - component: {fileID: 4370222375411446322}
   m_Layer: 0
   m_Name: Enemy Bullet Prefab
   m_TagString: Enemy Bullet
@@ -224,7 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21548c35204664d428f3368b01537f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
   speed: 5
 --- !u!135 &9045607208205191854
 SphereCollider:
@@ -239,6 +239,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5000001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4370222375411446322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263469133670370344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf2d03c83152b14eadfff4387f9f66b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 100
 --- !u!1 &6267476668083400654
 GameObject:
   m_ObjectHideFlags: 0
