@@ -16,6 +16,8 @@ public class Target : MonoBehaviour
 
     [Header("Shooting Information")]
     [SerializeField] private bool hasShot = false;
+    [SerializeField] private float shotDelay = 1.0f;
+    [SerializeField] private float stopTime = 0;
     private new Transform camera;
 
     [Header("Prefab References")]
@@ -29,6 +31,8 @@ public class Target : MonoBehaviour
     void Start()
     {
         transform.position = RandomSpawnPos();
+        shotDelay = Random.Range(0.5f, 2.0f);
+        camera = Camera.main.transform;
     }
 
     // Update is called once per frame
@@ -39,18 +43,30 @@ public class Target : MonoBehaviour
         // Behavior change when drone sees player
         if (transform.position.z < droneSightDistance)
         {
-            // Set speed for shooting
-            speed = 10.0f;
+            // Start delay for shot and stop movement
+            stopTime += Time.deltaTime;
+            speed = 5.0f;
 
             // Aim and Shoot at player
-            camera = Camera.main.transform;
+            
             Quaternion cameraRotation = Quaternion.LookRotation(camera.transform.position - transform.position);
             transform.rotation = Quaternion.Slerp(transform.rotation, cameraRotation, speed * Time.deltaTime);
 
-            //Drones get one shot at player
-            if (!hasShot)
+            // Check that drone aim delay has been met
+            if (stopTime > shotDelay)
             {
-                ShootAtPlayer();
+                //Drones get one shot at player
+                if (!hasShot)
+                {
+                    ShootAtPlayer();
+                }
+
+                // One second after shot drone should start moving again
+                if (stopTime + 1 > shotDelay)
+                {
+                    speed = 12.0f;
+                }
+
             }
         }
 
