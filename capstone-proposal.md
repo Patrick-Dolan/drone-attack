@@ -19,6 +19,8 @@ A Unity VR game made for the Oculus Quest 2 where you shoot targets while moving
 * Multiple levels with level selection screen
 * Enemies will shoot back at you and getting hit too many times will cause game over
 * User sign-on and persistent leaderboards through a database
+* Gun Reload system
+* Difficulty Selection
 
 ### Additional Tools for Stretch Goals
 * Firebase
